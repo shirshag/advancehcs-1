@@ -5,10 +5,11 @@ type Doctor = {
     slug: string;
     name: string;
     designation: string;
-    experience: number;
+    experience?: number;
     image: string;
     hospitalSlugs: string[];
     speciality: string;
+    qualifications: string[];
 };
 
 export function DoctorResults({ results }: { results: Doctor[] }) {
@@ -40,11 +41,14 @@ export function DoctorResults({ results }: { results: Doctor[] }) {
                                     <div className={styles.content}>
                                         <h5>{item.name}</h5>
                                         <p className={styles.designation}>{item.designation}</p>
+                                        <p className={styles.designation}>{item.qualifications[0] ?? "Qualification details not available"}</p>
 
                                         <div className={styles.meta}>
-                                            <span className={styles.exp}>
-                                                {item.experience}+ yrs experience
-                                            </span>
+                                            {item.experience ? (
+                                                <span className={styles.exp}>
+                                                    {item.experience}+ yrs experience
+                                                </span>
+                                            ) : null}
                                             <span className={styles.speciality}>
                                                 {item.speciality}
                                             </span>

@@ -11,8 +11,8 @@ const navItems = [
   { label: "Find a Doctor", href: "/doctors" },
   { label: "Academics", href: "/academics" },
   { label: "Patient Care", href: "/patient-care" },
-  { label: "Company History", href: "/company-history" },
-  { label: "Management Board", href: "/management-board" }
+  { label: "About Us", href: "/company-history" },
+  { label: "MD Speech", href: "/management-board" }
 ];
 
 export function Header() {

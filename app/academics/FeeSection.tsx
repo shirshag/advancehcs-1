@@ -1,243 +1,70 @@
-"use client";
-import { useState } from "react";
+import styles from "./Academics.module.css";
+
+const bbaFees = {
+  title: "Details Fees For BBA (HM)",
+  headers: ["Items", "1st Sem", "2nd Sem", "3rd Sem", "4th Sem", "5th Sem", "6th Sem", "7th Sem", "8th Sem", "Total (Rs.)"],
+  rows: [
+    ["Admission Fees", "25,000", "-", "-", "-", "-", "-", "-", "-", "25,000"],
+    ["Development Fees", "4,000", "4,000", "4,000", "4,000", "4,000", "4,000", "4,000", "4,000", "32,000"],
+    ["Library Fees", "4,000", "-", "-", "-", "-", "-", "-", "-", "4,000"],
+    ["Tuition Fees", "35,000", "35,000", "35,000", "35,000", "35,000", "30,000", "30,000", "30,000", "2,65,000"],
+    ["Caution Money", "5,000", "-", "-", "-", "-", "-", "-", "-", "5,000"],
+    ["Total (Rs.)", "73,000", "39,000", "39,000", "39,000", "39,000", "34,000", "34,000", "34,000", "3,15,000"]
+  ]
+};
+
+const mhaFees = {
+  title: "Details Fees For MHA",
+  headers: ["Items", "1st Semester", "2nd Semester", "3rd Semester", "4th Semester", "Total (Rs.)"],
+  rows: [
+    ["Admission Fees", "55,789", "-", "-", "-", "55,789"],
+    ["Development Fees", "6,974", "6,974", "6,974", "6,974", "27,896"],
+    ["Library Fees", "6,974", "-", "-", "-", "6,974"],
+    ["Tuition Fees", "1,18,641", "1,11,706", "1,04,770", "97,835", "4,32,952"],
+    ["Caution Fee", "6,974", "-", "-", "-", "6,974"],
+    ["Total", "1,95,352", "1,18,680", "1,11,744", "1,04,224", "5,30,000"]
+  ]
+};
+
+function FeeTable({ table }: { table: typeof bbaFees }) {
+  return (
+    <article className={styles.feeCard}>
+      <h3>{table.title}</h3>
+      <div className={styles.tableWrap}>
+        <table>
+          <thead>
+            <tr>
+              {table.headers.map((header) => <th key={header}>{header}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {table.rows.map((row) => (
+              <tr key={row.join("-")}>
+                {row.map((cell, index) => (
+                  <td key={`${cell}-${index}`} className={index === 0 ? styles.rowLabel : ""}>{cell}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </article>
+  );
+}
 
 export default function FeeSection() {
-    const [tab, setTab] = useState("bba");
-
-    return (
-        <>
-
-
-
-
-
-            <section className="py-16 bg-white">
-                <div className="max-w-7xl mx-auto px-4">
-
-                    {/* TITLE */}
-                    <h2 className="text-3xl font-bold text-center mb-8">
-                        Fee Structure
-                    </h2>
-
-                    <h4 className="text-lg font-semibold text-gray-700 mb-6 text-center">
-                        Details Fees For BBA (HM)
-                    </h4>
-
-                    {/* TABLE */}
-                    <div className="overflow-x-auto border border-gray-300 rounded-md shadow-sm">
-
-                        <table className="min-w-[900px] w-full text-sm md:text-base border-collapse">
-
-                            {/* HEADER */}
-                           <thead className="bg-[#0F286B] text-white">
-                                <tr className="[&>th]:p-3 [&>th]:border [&>th]:border-[hsla(0,0%,100%,0.25)]">
-                                    <th>Items</th>
-                                    <th>1st Sem</th>
-                                    <th>2nd Sem</th>
-                                    <th>3rd Sem</th>
-                                    <th>4th Sem</th>
-                                    <th>5th Sem</th>
-                                    <th >6th Sem</th>
-                                    <th>7th Sem</th>
-                                    <th >8th Sem</th>
-                                    <th className="text-right">Total (₹)</th>
-                                </tr>
-                            </thead>
-
-                            {/* BODY */}
-                              <tbody className="text-gray-700 [&>tr>td]:p-4 [&>tr>td]:border [&>tr>td]:border-[hsla(0,0%,50.2%,0.25)]">
-
-                                {/* Admission */}
-                                <tr className="hover:bg-gray-50">
-                                    <td className="font-medium">Admission Fees</td>
-                                    <td className="text-center">25,000</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-right">25,000</td>
-                                </tr>
-
-                                {/* Development */}
-                                <tr className="hover:bg-gray-50">
-                                    <td className="font-medium">Development Fees</td>
-                                    <td className="text-center">4,000</td>
-                                    <td className="text-center">4,000</td>
-                                    <td className="text-center">4,000</td>
-                                    <td className="text-center">4,000</td>
-                                    <td className="text-center">4,000</td>
-                                    <td className="text-center">4,000</td>
-                                    <td className="text-center">4,000</td>
-                                    <td className="text-center">4,000</td>
-                                    <td className="text-right">32,000</td>
-                                </tr>
-
-                                {/* Library */}
-                                <tr className="hover:bg-gray-50">
-                                    <td className="font-medium">Library Fees</td>
-                                    <td className="text-center">4,000</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-right">4,000</td>
-                                </tr>
-
-                                {/* Tuition */}
-                                <tr className="hover:bg-gray-50">
-                                    <td className="font-medium">Tuition Fees</td>
-                                    <td className="text-center">35,000</td>
-                                    <td className="text-center">35,000</td>
-                                    <td className="text-center">35,000</td>
-                                    <td className="text-center">35,000</td>
-                                    <td className="text-center">35,000</td>
-                                    <td className="text-center">30,000</td>
-                                    <td className="text-center">30,000</td>
-                                    <td className="text-center">30,000</td>
-                                    <td className="text-right">2,65,000</td>
-                                </tr>
-
-                                {/* Caution */}
-                                <tr className="hover:bg-gray-50">
-                                    <td className="font-medium">Caution Money</td>
-                                    <td className="text-center">5,000</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-right">5,000</td>
-                                </tr>
-
-                                {/* TOTAL */}
-                                <tr className="bg-gray-100 font-semibold text-gray-900">
-                                    <td className="p-3 border">Total (₹)</td>
-                                    <td className="text-center">73,000</td>
-                                    <td className="text-center">39,000</td>
-                                    <td className="text-center">39,000</td>
-                                    <td className="text-center">39,000</td>
-                                    <td className="text-center">39,000</td>
-                                    <td className="text-center">34,000</td>
-                                    <td className="text-center">34,000</td>
-                                    <td className="text-center">34,000</td>
-                                    <td className="text-right">3,15,000</td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
-            </section>
-
-
-
-
-
-
-
-
-
-
-
-
-            <section className="py-16 bg-white">
-                <div className="max-w-7xl mx-auto px-4">
-
-                    <h4 className="text-lg font-semibold text-gray-700 mb-6 text-center">
-                      Details Fees For MHA
-                    </h4>
-
-                    {/* TABLE */}
-                    <div className="overflow-x-auto border border-gray-300 rounded-md shadow-sm">
-
-                        <table className="min-w-[900px] w-full text-sm md:text-base border-collapse">
-
-                            {/* HEADER */}
-                            <thead className="bg-[#0F286B] text-white">
-                                <tr className="[&>th]:p-3 [&>th]:border [&>th]:border-[hsla(0,0%,100%,0.25)]">
-                                    <th>Items</th>
-                                    <th>1st Semester</th>
-                                    <th>2nd Semester</th>
-                                    <th>3rd Semester</th>
-                                    <th>4th Semester</th>
-                                    <th className="text-right">Total (₹)</th>
-                                </tr>
-                            </thead>
-
-                            {/* BODY */}
-                            <tbody className="text-gray-700 [&>tr>td]:p-4 [&>tr>td]:border [&>tr>td]:border-[hsla(0,0%,50.2%,0.25)]">
-
-                                <tr className="hover:bg-gray-50 ">
-                                    <td className="font-medium">Admission Fees</td>
-                                    <td className="text-center">55,789</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-right">55,789</td>
-                                </tr>
-
-                                <tr className="hover:bg-gray-50">
-                                    <td className="font-medium">Development Fees</td>
-                                    <td className="text-center">6,974</td>
-                                    <td className="text-center">6,974</td>
-                                    <td className="text-center">6,974</td>
-                                    <td className="text-center">6,974</td>
-                                    <td className="text-right">27,896</td>
-                                </tr>
-
-                                <tr className="hover:bg-gray-50">
-                                    <td className="font-medium">Library Fees</td>
-                                    <td className="text-center">6,974</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-right">6,974</td>
-                                </tr>
-
-                                <tr className="hover:bg-gray-50">
-                                    <td className="font-medium">Tuition Fees</td>
-                                    <td className="text-center">1,18,641</td>
-                                    <td className="text-center">1,11,706</td>
-                                    <td className="text-center">1,04,770</td>
-                                    <td className="text-center">97,835</td>
-                                    <td className="text-right">4,32,952</td>
-                                </tr>
-
-                                <tr className="hover:bg-gray-50">
-                                    <td className="font-medium">Caution Fee</td>
-                                    <td className="text-center">6,974</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-center">–</td>
-                                    <td className="text-right">6,974</td>
-                                </tr>
-
-                                {/* TOTAL */}
-                                <tr className="bg-gray-100 font-semibold text-gray-900">
-                                    <td>Total</td>
-                                    <td className="text-center">1,95,352</td>
-                                    <td className="text-center">1,18,680</td>
-                                    <td className="text-center">1,11,744</td>
-                                    <td className="text-center">1,04,224</td>
-                                    <td className="text-right">5,30,000</td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
-            </section>
-
-        </>
-    );
+  return (
+    <section className={styles.feeSection}>
+      <div className="container">
+        <div className={styles.sectionHead}>
+          <span className={styles.eyebrow}>Fee Structure</span>
+          <h2>Transparent program fee details</h2>
+        </div>
+        <div className={styles.feeGrid}>
+          <FeeTable table={bbaFees} />
+          <FeeTable table={mhaFees} />
+        </div>
+      </div>
+    </section>
+  );
 }

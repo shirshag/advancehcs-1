@@ -23,7 +23,12 @@ export function DoctorCard({ doctor }: { doctor: Doctor }) {
         <span className="pill">{speciality?.name}</span>
         <h3>{doctor.name}</h3>
         <p>{doctor.designation}</p>
-        <p className="muted">{hospital?.shortName} - {doctor.experience} years</p>
+        <p>{doctor.qualifications[0] ?? "Qualification details not available"}</p>
+        {doctor.availability ? <p className="muted"><strong>Availability:</strong> {doctor.availability}</p> : null}
+        <p className="muted">
+          {hospital?.shortName}
+          {doctor.experience ? ` - ${doctor.experience} years` : ""}
+        </p>
         <div className="button-row">
           <Link className="btn btn-outline" href={`/doctors/${doctor.slug}`}>View Profile</Link>
           <Link className="btn btn-primary" href={`/book-appointment?doctor=${doctor.slug}`}>Book Appointment</Link>

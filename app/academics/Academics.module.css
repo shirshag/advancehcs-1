@@ -1,0 +1,523 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 84% 16%, rgba(0, 168, 157, 0.28), transparent 28rem),
+    linear-gradient(135deg, #061653 0%, var(--navy) 65%, #0a337b 100%);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+  background-size: 54px 54px;
+  pointer-events: none;
+}
+
+.heroGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(340px, 1.05fr);
+  gap: clamp(32px, 6vw, 82px);
+  align-items: center;
+  padding-top: 34px;
+  padding-bottom: 72px;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.92rem;
+}
+
+.breadcrumb a {
+  color: #ffffff;
+}
+
+.eyebrow {
+  color: var(--teal);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero .eyebrow {
+  color: #7ce0d8;
+}
+
+.hero h1 {
+  max-width: 860px;
+  margin: 12px 0 18px;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.hero p {
+  max-width: 620px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1.08rem, 2vw, 1.32rem);
+  line-height: 1.65;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.heroActions :global(.btn-outline) {
+  border-color: rgba(255, 255, 255, 0.46);
+  color: #ffffff;
+  background: transparent;
+}
+
+.heroMedia {
+  position: relative;
+  animation: enterUp 360ms ease-out both;
+}
+
+.heroMedia img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.18 / 1;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 24px;
+  box-shadow: 0 30px 76px rgba(0, 8, 38, 0.36);
+}
+
+.contactPanel {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  display: grid;
+  gap: 4px;
+  min-width: 220px;
+  padding: 18px;
+  border-radius: 18px;
+  color: var(--navy);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 16px 36px rgba(0, 8, 38, 0.22);
+}
+
+.contactPanel span {
+  color: var(--teal);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contactPanel strong {
+  font-size: 1.22rem;
+}
+
+.hospitalsSection {
+  padding: 42px 0;
+  background: #ffffff;
+}
+
+.hospitalGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.hospitalCard {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 20px;
+  align-items: center;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(10, 31, 107, 0.07);
+}
+
+.hospitalCard img {
+  width: 180px;
+  height: 130px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: #f7f9fc;
+}
+
+.hospitalCard span {
+  color: var(--teal);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hospitalCard h2 {
+  margin: 6px 0;
+  color: var(--navy);
+  font-size: 1.25rem;
+}
+
+.hospitalCard p {
+  margin: 0;
+  color: #536173;
+}
+
+.focusSection {
+  padding: 78px 0;
+  background: #f7f9fc;
+}
+
+.focusGrid {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.42fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: start;
+}
+
+.focusIntro {
+  position: sticky;
+  top: 142px;
+}
+
+.focusIntro h2,
+.sectionHead h2,
+.directorCard h2 {
+  margin: 10px 0 18px;
+  color: var(--navy);
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.focusIntro p,
+.focusContent p,
+.directorCard p {
+  color: #4d5a6b;
+  font-size: 1.04rem;
+  line-height: 1.78;
+}
+
+.focusContent {
+  padding: clamp(26px, 4vw, 42px);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow: 0 18px 46px rgba(10, 31, 107, 0.08);
+}
+
+.focusContent > p {
+  margin-top: 0;
+}
+
+.chooseGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.chooseGrid article {
+  padding: 22px;
+  border-radius: 18px;
+  color: var(--navy);
+  background: rgba(0, 168, 157, 0.1);
+}
+
+.chooseGrid span {
+  color: var(--teal);
+  font-weight: 900;
+}
+
+.chooseGrid h3 {
+  margin: 8px 0 10px;
+}
+
+.chooseGrid p {
+  margin: 0;
+}
+
+.directorSection {
+  padding: 76px 0;
+  background: #ffffff;
+}
+
+.directorCard {
+  display: grid;
+  grid-template-columns: minmax(240px, 360px) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 56px);
+  align-items: center;
+  padding: clamp(24px, 4vw, 42px);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0, 168, 157, 0.1), transparent 20rem),
+    #ffffff;
+  box-shadow: 0 18px 46px rgba(10, 31, 107, 0.08);
+}
+
+.directorCard img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: 20px;
+  background: #f7f9fc;
+}
+
+.role {
+  margin-top: -8px !important;
+  color: var(--teal) !important;
+  font-weight: 850;
+}
+
+.directorCard blockquote {
+  margin: 22px 0 0;
+  padding-left: 18px;
+  border-left: 4px solid var(--teal);
+  color: var(--navy);
+  font-weight: 850;
+  line-height: 1.6;
+}
+
+.coursesSection,
+.feeSection {
+  padding: 76px 0;
+  background: #f7f9fc;
+}
+
+.sectionHead {
+  max-width: 760px;
+  margin-bottom: 28px;
+}
+
+.courseGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.courseCard {
+  min-height: 220px;
+  display: grid;
+  align-content: space-between;
+  gap: 22px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(10, 31, 107, 0.06);
+}
+
+.courseCard:first-child {
+  grid-column: span 2;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0, 168, 157, 0.12), transparent 18rem),
+    #ffffff;
+}
+
+.courseCard h3 {
+  margin: 0;
+  color: var(--navy);
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+}
+
+.courseCard p {
+  margin: 0;
+  color: #536173;
+  line-height: 1.65;
+}
+
+.specializationSection {
+  padding: 70px 0;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 88% 0%, rgba(0, 168, 157, 0.24), transparent 22rem),
+    var(--navy);
+}
+
+.specializationSection .eyebrow {
+  color: #7ce0d8;
+}
+
+.specializationSection h2 {
+  color: #ffffff;
+}
+
+.specializationGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.specializationGrid span {
+  min-height: 92px;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  text-align: center;
+  font-weight: 900;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.feeGrid {
+  display: grid;
+  gap: 24px;
+}
+
+.feeCard {
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 12px 34px rgba(10, 31, 107, 0.07);
+}
+
+.feeCard h3 {
+  margin: 0 0 18px;
+  color: var(--navy);
+  font-size: 1.35rem;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.tableWrap table {
+  width: 100%;
+  min-width: 860px;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: #3f4d5f;
+}
+
+.tableWrap th {
+  padding: 13px 14px;
+  color: #ffffff;
+  background: var(--navy);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.tableWrap th:first-child {
+  border-top-left-radius: 12px;
+}
+
+.tableWrap th:last-child {
+  border-top-right-radius: 12px;
+}
+
+.tableWrap td {
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--line);
+  background: #ffffff;
+  white-space: nowrap;
+}
+
+.tableWrap tbody tr:last-child td {
+  color: var(--navy);
+  background: rgba(0, 168, 157, 0.1);
+  font-weight: 900;
+}
+
+.rowLabel {
+  color: var(--navy);
+  font-weight: 850;
+}
+
+@keyframes enterUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1100px) {
+  .heroGrid,
+  .focusGrid,
+  .directorCard {
+    grid-template-columns: 1fr;
+  }
+
+  .focusIntro {
+    position: static;
+  }
+
+  .hospitalGrid,
+  .chooseGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .courseGrid,
+  .specializationGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .courseCard:first-child {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 720px) {
+  .heroGrid {
+    padding-top: 24px;
+    padding-bottom: 48px;
+  }
+
+  .breadcrumb {
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.65rem, 14vw, 4.2rem);
+  }
+
+  .contactPanel {
+    position: static;
+    margin-top: 10px;
+  }
+
+  .hospitalCard {
+    grid-template-columns: 1fr;
+  }
+
+  .hospitalCard img {
+    width: 100%;
+  }
+
+  .focusSection,
+  .directorSection,
+  .coursesSection,
+  .specializationSection,
+  .feeSection {
+    padding: 54px 0;
+  }
+
+  .courseGrid,
+  .specializationGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroMedia {
+    animation: none;
+  }
+}

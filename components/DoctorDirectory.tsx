@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { doctors, hospitals, specialities } from "@/data/site";
+import { doctors, getSpeciality, hospitals, specialities } from "@/data/site";
 import { DoctorCard } from "@/components/Cards";
 
 export function DoctorDirectory() {
@@ -12,11 +12,19 @@ export function DoctorDirectory() {
   const [selectedHospitals, setSelectedHospitals] = useState<string[]>(params.get("hospital") ? [params.get("hospital") as string] : []);
   const [gender, setGender] = useState("All");
   const [limit, setLimit] = useState(9);
+  const availableGenders = Array.from(new Set(doctors.map((doctor) => doctor.gender).filter((value): value is "Male" | "Female" => Boolean(value))));
 
   const filtered = useMemo(() => {
     return doctors.filter((doctor) => {
       const q = query.trim().toLowerCase();
-      const queryMatch = q ? doctor.name.toLowerCase().includes(q) || doctor.designation.toLowerCase().includes(q) : true;
+      const searchableText = [
+        doctor.name,
+        doctor.designation,
+        getSpeciality(doctor.speciality)?.name,
+        doctor.availability,
+        ...doctor.qualifications
+      ].filter(Boolean).join(" ").toLowerCase();
+      const queryMatch = q ? searchableText.includes(q) : true;
       const specialityMatch = selectedSpecialities.length ? selectedSpecialities.includes(doctor.speciality) : true;
       const hospitalMatch = selectedHospitals.length ? doctor.hospitalSlugs.some((slug) => selectedHospitals.includes(slug)) : true;
       const genderMatch = gender === "All" ? true : doctor.gender === gender;
@@ -54,15 +62,17 @@ export function DoctorDirectory() {
             </label>
           ))}
         </fieldset>
-        <fieldset>
-          <legend>By Gender</legend>
-          {["All", "Male", "Female"].map((item) => (
-            <label key={item} className="check-row">
-              <input type="radio" name="gender" checked={gender === item} onChange={() => setGender(item)} />
-              {item}
-            </label>
-          ))}
-        </fieldset>
+        {availableGenders.length ? (
+          <fieldset>
+            <legend>By Gender</legend>
+            {["All", ...availableGenders].map((item) => (
+              <label key={item} className="check-row">
+                <input type="radio" name="gender" checked={gender === item} onChange={() => setGender(item)} />
+                {item}
+              </label>
+            ))}
+          </fieldset>
+        ) : null}
       </aside>
       <div>
         <p className="result-count">{filtered.length} doctors found</p>

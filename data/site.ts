@@ -31,8 +31,9 @@ export type Doctor = {
   designation: string;
   speciality: string;
   hospitalSlugs: string[];
-  experience: number;
-  gender: "Male" | "Female";
+  experience?: number;
+  gender?: "Male" | "Female";
+  availability?: string;
   image: string;
   languages: string[];
   qualifications: string[];
@@ -52,7 +53,7 @@ export const company = {
   email: "care@advancehcs.in",
   copyright: "© 2025 Advance HCS Pvt Ltd",
   about:
-    "Established in 2010, Glocal Healthcare has quickly become synonymous with affordable and accessible medical care, deeply rooted in a mission to bridge healthcare gaps in underserved communities. Driven by a commitment to innovative and ethical healthcare, Glocal operates a growing network of multi-specialty hospitals and digital dispensaries, particularly across rural and semi-urban West Bengal. These state-of-the-art facilities combine cutting-edge technology with compassionate, high-quality service, ensuring that advanced medical care reaches those who need it most."
+    "Advance HCS Pvt. Ltd. is a leading healthcare organization committed to operating and managing multiple hospitals across West Bengal. At Glocal (AHCS), our mission is to provide high-quality, accessible, and affordable healthcare services with compassion, dignity, and respect."
 };
 
 export const stats = [
@@ -146,6 +147,97 @@ export const specialities: Speciality[] = [
     icon: "scope",
     description: "Minimally invasive surgical care with shorter recovery pathways.",
     conditions: ["Gall bladder stones", "Hernia", "Ovarian cysts", "Appendix"]
+  },
+  {
+    slug: "nephrology",
+    name: "Nephrology",
+    icon: "activity",
+    description: "Specialist care for kidney disease, dialysis planning, and renal health.",
+    conditions: ["Kidney disease", "Renal failure", "Dialysis care", "Hypertension"]
+  },
+  {
+    slug: "maxillofacial-dental",
+    name: "Maxillofacial & Dental",
+    icon: "heart",
+    description: "Dental and oral-maxillofacial assessment, treatment, and surgical care.",
+    conditions: ["Dental pain", "Jaw disorders", "Oral surgery", "Facial trauma"]
+  },
+  {
+    slug: "urology",
+    name: "Urology",
+    icon: "activity",
+    description: "Diagnosis and treatment for urinary tract and male reproductive conditions.",
+    conditions: ["Kidney stones", "Urinary problems", "Prostate care", "Urological surgery"]
+  },
+  {
+    slug: "chest-medicine",
+    name: "Chest Medicine",
+    icon: "stethoscope",
+    description: "Respiratory medicine for lung disease, breathing issues, and chest conditions.",
+    conditions: ["Asthma", "COPD", "Breathing difficulty", "Chest infections"]
+  },
+  {
+    slug: "oncology",
+    name: "Oncology",
+    icon: "heart",
+    description: "Specialist evaluation and coordinated care for cancer-related conditions.",
+    conditions: ["Cancer evaluation", "Treatment planning", "Follow-up care", "Symptom support"]
+  },
+  {
+    slug: "pain-management",
+    name: "Pain Management",
+    icon: "activity",
+    description: "Assessment and treatment planning for acute and chronic pain.",
+    conditions: ["Chronic pain", "Back pain", "Joint pain", "Post-operative pain"]
+  },
+  {
+    slug: "neuro-surgery",
+    name: "Neuro-Surgery",
+    icon: "brain",
+    description: "Surgical care for conditions affecting the brain, spine, and nervous system.",
+    conditions: ["Brain surgery", "Spine surgery", "Nerve conditions", "Neurosurgical trauma"]
+  },
+  {
+    slug: "gynecologic-oncology",
+    name: "Gynecologic Oncology",
+    icon: "heart",
+    description: "Specialist cancer care for the female reproductive system.",
+    conditions: ["Cervical cancer", "Ovarian cancer", "Uterine cancer", "Cancer follow-up"]
+  },
+  {
+    slug: "plastic-reconstructive-surgery",
+    name: "Plastic & Reconstructive Surgery",
+    icon: "scalpel",
+    description: "Reconstructive and restorative surgical care following injury or illness.",
+    conditions: ["Reconstructive surgery", "Wound care", "Burn care", "Trauma repair"]
+  },
+  {
+    slug: "pulmonology",
+    name: "Pulmonology",
+    icon: "stethoscope",
+    description: "Specialist respiratory care for lung and breathing conditions.",
+    conditions: ["Asthma", "COPD", "Breathing difficulty", "Chest infections"]
+  },
+  {
+    slug: "physiotherapy-rehabilitation",
+    name: "Physiotherapy & Rehabilitation",
+    icon: "activity",
+    description: "Movement, strength, and recovery support through physiotherapy and rehabilitation.",
+    conditions: ["Mobility recovery", "Post-operative rehabilitation", "Pain management", "Strength training"]
+  },
+  {
+    slug: "dietetics",
+    name: "Dietetics",
+    icon: "heart",
+    description: "Nutrition assessment and diet planning to support treatment and wellbeing.",
+    conditions: ["Diet planning", "Clinical nutrition", "Weight management", "Nutrition counselling"]
+  },
+  {
+    slug: "ophthalmology",
+    name: "Ophthalmology",
+    icon: "scan",
+    description: "Medical and surgical care for eye health and vision conditions.",
+    conditions: ["Vision problems", "Cataract", "Eye infection", "Eye surgery"]
   }
 ];
 
@@ -198,9 +290,9 @@ export const hospitals: Hospital[] = [
     phone: "+91-9474734758",
     image: "https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=1200&q=80",
     beds: 38,
-    doctors: 24,
+    doctors: 35,
     established: 2016,
-    specialities: ["general-medicine", "orthopaedics", "cardiology", "dermatology", "emergency-trauma", "radiology-imaging"],
+    specialities: ["general-medicine", "surgery", "orthopaedics", "gynaecology-obstetrics", "neurology", "nephrology", "maxillofacial-dental", "urology", "ent-head-neck", "chest-medicine", "oncology", "pain-management", "cardiology", "paediatrics"],
     address: "Paschim Medinipur, West Bengal",
     coordinates: { x: 31, y: 71 }
   },
@@ -211,15 +303,15 @@ export const hospitals: Hospital[] = [
     type: "A Unit of Advance HCS Pvt Ltd",
     city: "Berhampore",
     district: "Murshidabad",
-    location: "Berhampore, Murshidabad",
+    location: "Karbala Road, Cossimbazar, Berhampore",
     email: "aahilhospitex@gmail.com",
     phone: "+91-9775978603/06",
     image: "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?auto=format&fit=crop&w=1200&q=80",
     beds: 55,
-    doctors: 35,
+    doctors: 59,
     established: 2018,
-    specialities: ["general-medicine", "surgery", "cardiology", "neurology", "paediatrics", "emergency-trauma"],
-    address: "Berhampore, Murshidabad, West Bengal",
+    specialities: ["orthopaedics", "surgery", "gynaecology-obstetrics", "neuro-surgery", "gynecologic-oncology", "radiology-imaging", "plastic-reconstructive-surgery", "pulmonology", "urology", "nephrology", "ent-head-neck", "general-medicine", "physiotherapy-rehabilitation", "dietetics", "ophthalmology"],
+    address: "Karbala Road, Near Chalpatti, P.O-Cossimbazar, P.S-Berhampore, Murshidabad-742102",
     coordinates: { x: 49, y: 18 }
   },
   {
@@ -242,190 +334,129 @@ export const hospitals: Hospital[] = [
   }
 ];
 
-export const doctors: Doctor[] = [
-  {
-    slug: "dr-dipu-sarkar",
-    name: "Dr. Dipu Sarkar",
-    designation: "Consultant Obstetrics and Gynaecology",
-    speciality: "gynaecology-obstetrics",
-    hospitalSlugs: ["glocal-krishnanagar", "octave-healthcare-kalyani"],
-    experience: 14,
-    gender: "Male",
-    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=800&q=80",
-    languages: ["Bengali", "Hindi", "English"],
-    qualifications: ["MBBS", "MS Obstetrics & Gynaecology"],
-    specialisationAreas: ["High-risk pregnancy", "Antenatal care", "Women's wellness"],
-    conditions: ["Pregnancy care", "PCOS", "Menstrual disorders", "Fibroids"]
-  },
-  {
-    slug: "dr-sanjoy-ghosh",
-    name: "Dr. Sanjoy Ghosh",
-    designation: "Consultant, ENT & Head Neck Surgery",
-    speciality: "ent-head-neck",
-    hospitalSlugs: ["glocal-krishnanagar"],
-    experience: 16,
-    gender: "Male",
-    image: "https://images.unsplash.com/photo-1651008376811-b90baee60c1f?auto=format&fit=crop&w=800&q=80",
-    languages: ["Bengali", "Hindi", "English"],
-    qualifications: ["MBBS", "MS ENT"],
-    specialisationAreas: ["Sinus care", "Head-neck surgery", "Hearing disorders"],
-    conditions: ["Sinusitis", "Tonsillitis", "Ear infections", "Voice disorders"]
-  },
-  {
-    slug: "dr-lovely-agarwal",
-    name: "Dr. Lovely Agarwal",
-    designation: "Consultant Obstetrics, Gynaecology & Advanced Laparoscopic Surgeon",
-    speciality: "gynaecology-obstetrics",
-    hospitalSlugs: ["glocal-sonamukhi", "octave-healthcare-kalyani"],
-    experience: 12,
-    gender: "Female",
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80",
-    languages: ["Bengali", "Hindi", "English"],
-    qualifications: ["MBBS", "DGO", "Fellowship in Laparoscopy"],
-    specialisationAreas: ["Advanced laparoscopy", "Maternity care", "Infertility support"],
-    conditions: ["Ovarian cysts", "Fibroids", "Endometriosis", "Infertility"]
-  },
-  {
-    slug: "dr-anupam-roy",
-    name: "Dr. Anupam Roy",
-    designation: "Consultant Gynaecologist, Obstetrician, Laparoscopic Surgeon & Infertility Specialist",
-    speciality: "laparoscopic-surgery",
-    hospitalSlugs: ["glocal-krishnanagar", "glocal-sonamukhi"],
-    experience: 18,
-    gender: "Male",
-    image: "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=800&q=80",
-    languages: ["Bengali", "Hindi", "English"],
-    qualifications: ["MBBS", "MS", "FMAS"],
-    specialisationAreas: ["Laparoscopic surgery", "Infertility", "Complex gynaecology"],
-    conditions: ["Infertility", "Fibroids", "Endometriosis", "Ovarian cysts"]
-  },
-  {
-    slug: "dr-faiyaz-khan",
-    name: "Dr. Faiyaz Khan",
-    designation: "Consultant Orthopedic & Spine Surgeon",
-    speciality: "orthopaedics",
-    hospitalSlugs: ["glocal-paschim-medinipur", "octave-healthcare-kalyani"],
-    experience: 13,
-    gender: "Male",
-    image: "https://images.unsplash.com/photo-1622902046580-2b47f47f5471?auto=format&fit=crop&w=800&q=80",
-    languages: ["Bengali", "Hindi", "English"],
-    qualifications: ["MBBS", "MS Orthopaedics"],
-    specialisationAreas: ["Spine surgery", "Trauma", "Joint care"],
-    conditions: ["Fractures", "Back pain", "Arthritis", "Disc disease"]
-  },
-  {
-    slug: "dr-rima-banerjee",
-    name: "Dr. Rima Banerjee",
-    designation: "Consultant Cardiologist",
-    speciality: "cardiology",
-    hospitalSlugs: ["aahil-hospitex-berhampore", "glocal-paschim-medinipur"],
-    experience: 11,
-    gender: "Female",
-    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=80",
-    languages: ["Bengali", "Hindi", "English"],
-    qualifications: ["MBBS", "MD Medicine", "DM Cardiology"],
-    specialisationAreas: ["Cardiac risk", "Hypertension", "Heart failure"],
-    conditions: ["Chest pain", "Arrhythmia", "Hypertension", "Heart failure"]
-  },
-  {
-    slug: "dr-abhishek-mondal",
-    name: "Dr. Abhishek Mondal",
-    designation: "Consultant General Medicine",
-    speciality: "general-medicine",
-    hospitalSlugs: ["glocal-sonamukhi", "aahil-hospitex-berhampore"],
-    experience: 10,
-    gender: "Male",
-    image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=800&q=80",
-    languages: ["Bengali", "Hindi", "English"],
-    qualifications: ["MBBS", "MD Medicine"],
-    specialisationAreas: ["Diabetes", "Infections", "Critical medicine"],
-    conditions: ["Fever", "Diabetes", "Hypertension", "Respiratory illness"]
-  },
-  {
-    slug: "dr-nandita-sen",
-    name: "Dr. Nandita Sen",
-    designation: "Consultant Paediatrician",
-    speciality: "paediatrics",
-    hospitalSlugs: ["glocal-sonamukhi", "aahil-hospitex-berhampore"],
-    experience: 9,
-    gender: "Female",
-    image: "https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&w=800&q=80",
-    languages: ["Bengali", "Hindi", "English"],
-    qualifications: ["MBBS", "MD Paediatrics"],
-    specialisationAreas: ["Child fever", "Vaccination", "Newborn care"],
-    conditions: ["Asthma", "Fever", "Growth concerns", "Newborn jaundice"]
-  },
-  {
-    slug: "dr-arindam-dutta",
-    name: "Dr. Arindam Dutta",
-    designation: "Consultant Neurologist",
-    speciality: "neurology",
-    hospitalSlugs: ["aahil-hospitex-berhampore"],
-    experience: 15,
-    gender: "Male",
-    image: "https://images.unsplash.com/photo-1629308335485-3d668f98ddbb?auto=format&fit=crop&w=800&q=80",
-    languages: ["Bengali", "Hindi", "English"],
-    qualifications: ["MBBS", "MD Medicine", "DM Neurology"],
-    specialisationAreas: ["Stroke", "Epilepsy", "Neuropathy"],
-    conditions: ["Stroke", "Migraine", "Seizures", "Vertigo"]
-  },
-  {
-    slug: "dr-priyanka-pal",
-    name: "Dr. Priyanka Pal",
-    designation: "Consultant Dermatologist",
-    speciality: "dermatology",
-    hospitalSlugs: ["glocal-paschim-medinipur", "octave-healthcare-kalyani"],
-    experience: 8,
-    gender: "Female",
-    image: "https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=800&q=80",
-    languages: ["Bengali", "Hindi", "English"],
-    qualifications: ["MBBS", "MD Dermatology"],
-    specialisationAreas: ["Skin allergy", "Hair disorders", "Acne care"],
-    conditions: ["Acne", "Eczema", "Fungal infections", "Hair loss"]
-  },
-  {
-    slug: "dr-soumen-paul",
-    name: "Dr. Soumen Paul",
-    designation: "Emergency Medicine Consultant",
-    speciality: "emergency-trauma",
-    hospitalSlugs: ["glocal-krishnanagar", "glocal-sonamukhi", "glocal-paschim-medinipur"],
-    experience: 12,
-    gender: "Male",
-    image: "https://images.unsplash.com/photo-1584467735871-8d8f25fa47b4?auto=format&fit=crop&w=800&q=80",
-    languages: ["Bengali", "Hindi", "English"],
-    qualifications: ["MBBS", "MEM"],
-    specialisationAreas: ["Trauma response", "Critical stabilization", "Emergency triage"],
-    conditions: ["Accidents", "Breathing distress", "Poisoning", "Acute pain"]
-  },
-  {
-    slug: "dr-moumita-roy",
-    name: "Dr. Moumita Roy",
-    designation: "Consultant Radiologist",
-    speciality: "radiology-imaging",
-    hospitalSlugs: ["glocal-krishnanagar", "octave-healthcare-kalyani"],
-    experience: 7,
-    gender: "Female",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80",
-    languages: ["Bengali", "Hindi", "English"],
-    qualifications: ["MBBS", "MD Radiodiagnosis"],
-    specialisationAreas: ["Ultrasound", "X-ray reporting", "Emergency imaging"],
-    conditions: ["Abdominal pain", "Pregnancy scans", "Trauma imaging", "Chest imaging"]
-  },
-  {
-    slug: "dr-sayan-chatterjee",
-    name: "Dr. Sayan Chatterjee",
-    designation: "Consultant General & Laparoscopic Surgeon",
-    speciality: "surgery",
-    hospitalSlugs: ["glocal-sonamukhi", "aahil-hospitex-berhampore"],
-    experience: 10,
-    gender: "Male",
-    image: "https://images.unsplash.com/photo-1637059824899-a441006a6875?auto=format&fit=crop&w=800&q=80",
-    languages: ["Bengali", "Hindi", "English"],
-    qualifications: ["MBBS", "MS General Surgery"],
-    specialisationAreas: ["General surgery", "Laparoscopy", "Emergency surgery"],
-    conditions: ["Appendicitis", "Hernia", "Gall bladder stones", "Trauma wounds"]
-  }
+type DoctorSeed = {
+  slug: string;
+  name: string;
+  designation: string;
+  speciality: string;
+  qualification?: string;
+  availability?: string;
+  hospitalSlug?: string;
+};
+
+const medinipurDoctorSeeds: DoctorSeed[] = [
+  { slug: "dr-sudip-roy", name: "Dr. Sudip Roy", designation: "Medicine Unit", speciality: "general-medicine", qualification: "MBBS, MD Medicine", hospitalSlug: "glocal-paschim-medinipur" },
+  { slug: "dr-manju-nath-poral", name: "Dr. Manju Nath Poral", designation: "Medicine Unit", speciality: "general-medicine", qualification: "MBBS, MD, DM-Nephrology" },
+  { slug: "dr-pankaj-kumar-sinha", name: "Dr. Pankaj Kumar Sinha", designation: "Medicine Unit", speciality: "general-medicine" },
+  { slug: "dr-swapan-dab", name: "Dr. Swapan Dab", designation: "Medicine Unit", speciality: "general-medicine", qualification: "General Medicine" },
+  { slug: "dr-rajarshi-dey", name: "Dr. Rajarshi Dey", designation: "General Surgery Unit", speciality: "surgery", qualification: "MBBS, MS (Gen. Surgeon)" },
+  { slug: "dr-biswajit-panda", name: "Dr. Biswajit Panda", designation: "General Surgery Unit", speciality: "surgery", qualification: "MBBS, MS (Gen. Surgeon)" },
+  { slug: "dr-abdul-latif", name: "Dr. Abdul Latif", designation: "Orthopedic Unit", speciality: "orthopaedics", qualification: "MBBS, MS, MCh-Ortho" },
+  { slug: "dr-pranabendu-mondal", name: "Dr. Pranabendu Mondal", designation: "Orthopedic Unit", speciality: "orthopaedics", qualification: "MBBS, MS-Ortho" },
+  { slug: "dr-biplab-barman", name: "Dr. Biplab Barman", designation: "Orthopedic Unit", speciality: "orthopaedics", qualification: "MBBS, MS-Ortho" },
+  { slug: "dr-chayan-kr-pal", name: "Dr. Chayan Kr Pal", designation: "Orthopedic Unit", speciality: "orthopaedics", qualification: "MBBS, MS-Ortho" },
+  { slug: "dr-jieshnu-mukhopadhyay", name: "Dr. Jieshnu Mukhopadhyay", designation: "Orthopedic Unit", speciality: "orthopaedics", qualification: "MBBS, D-Ortho" },
+  { slug: "dr-bivash-mondal", name: "Dr. Bivash Mondal", designation: "Obstetrics & Gynaecology Unit", speciality: "gynaecology-obstetrics", qualification: "MBBS, MS (Obst & Gynae)" },
+  { slug: "dr-alolika-deb", name: "Dr. Alolika Deb", designation: "Obstetrics & Gynaecology Unit", speciality: "gynaecology-obstetrics", qualification: "MBBS, MS (Obst & Gynae)" },
+  { slug: "dr-gairik-bera", name: "Dr. Gairik Bera", designation: "Obstetrics & Gynaecology Unit", speciality: "gynaecology-obstetrics", qualification: "MBBS, MS (Obst & Gynae)" },
+  { slug: "dr-md-sarwar-neurology", name: "Dr. MD Sarwar", designation: "Neurologist Unit", speciality: "neurology", qualification: "MBBS, MD, DM (Neuro Med)" },
+  { slug: "dr-sumit-arora-neurology", name: "Dr. Sumit Arora", designation: "Neurologist Unit", speciality: "neurology", qualification: "MBBS, MCh (Neuro Surg)" },
+  { slug: "dr-amlan-kanti-biswas", name: "Dr. Amlan Kanti Biswas", designation: "Nephrologist Unit", speciality: "nephrology", qualification: "MBBS, MD, DM-Nephrology" },
+  { slug: "dr-uttayan-chakraborty", name: "Dr. Uttayan Chakraborty", designation: "Nephrologist Unit", speciality: "nephrology", qualification: "MBBS, MD, DM-Nephrology" },
+  { slug: "dr-md-sarwar-dental", name: "Dr. MD Sarwar", designation: "Maxillofacial & Dental", speciality: "maxillofacial-dental", qualification: "BDS, MDS (Oral & Maxillofacial Surg.)" },
+  { slug: "dr-sumit-arora-dental", name: "Dr. Sumit Arora", designation: "Maxillofacial & Dental", speciality: "maxillofacial-dental", qualification: "BDS (Oral & Maxillofacial Surg.)" },
+  { slug: "dr-purnimesh-mandal", name: "Dr. Purnimesh Mandal", designation: "Maxillofacial & Dental", speciality: "maxillofacial-dental", qualification: "BDS (Oral & Maxillofacial Surg.)" },
+  { slug: "dr-md-dawood-khan", name: "Dr. MD Dawood Khan", designation: "Urologist Unit", speciality: "urology", qualification: "MBBS, MS (Gen. Surgeon), MCh Urology" },
+  { slug: "dr-sidhharta-dutta", name: "Dr. Sidhharta Dutta", designation: "Urologist Unit", speciality: "urology", qualification: "MBBS, MS (Gen. Surgeon), MCh Urology" },
+  { slug: "dr-maharaj-mondal", name: "Dr. Maharaj Mondal", designation: "Urologist Unit", speciality: "urology" },
+  { slug: "dr-swagato-roy", name: "Dr. Swagato Roy", designation: "ENT Unit", speciality: "ent-head-neck", qualification: "MBBS, MS (ENT)" },
+  { slug: "dr-anamika", name: "Dr. Anamika", designation: "ENT Unit", speciality: "ent-head-neck", qualification: "MBBS, MS (ENT)" },
+  { slug: "dr-shomik-banerjee", name: "Dr. Shomik Banerjee", designation: "Chest Medicine", speciality: "chest-medicine" },
+  { slug: "dr-subham-chanda", name: "Dr. Subham Chanda", designation: "Chest Medicine", speciality: "chest-medicine" },
+  { slug: "dr-saikat-sheet", name: "Dr. Saikat Sheet", designation: "Oncology Unit", speciality: "oncology" },
+  { slug: "dr-deepak-dash", name: "Dr. Deepak Dash", designation: "Pain Management", speciality: "pain-management", qualification: "Pain Management" },
+  { slug: "dr-anup-banerjee", name: "Dr. Anup Banerjee", designation: "Cardiologist", speciality: "cardiology", qualification: "MD, DM" },
+  { slug: "dr-baivab-mishra", name: "Dr. Baivab Mishra", designation: "Cardiologist", speciality: "cardiology", qualification: "MD, DM" },
+  { slug: "dr-ayan-ghosh", name: "Dr. Ayan Ghosh", designation: "Pediatrician", speciality: "paediatrics" },
+  { slug: "dr-himadri-sekhar-kisku", name: "Dr. Himadri Sekhar Kisku", designation: "Pediatrician", speciality: "paediatrics" },
+  { slug: "dr-parvej-biswas", name: "Dr. Parvej Biswas", designation: "Pediatrician", speciality: "paediatrics" }
 ];
+
+const aahilDoctorSeeds: DoctorSeed[] = [
+  { slug: "dr-debangan-dhar", name: "Dr. Debangan Dhar", designation: "Orthopedic & Spine Surgery", speciality: "orthopaedics", qualification: "MBBS, MS" },
+  { slug: "dr-rayan-dalal", name: "Dr. Rayan Dalal", designation: "Orthopedic & Spine Surgery", speciality: "orthopaedics", qualification: "MBBS, MS" },
+  { slug: "dr-pritam-pal", name: "Dr. Pritam Pal", designation: "Orthopedic & Spine Surgery", speciality: "orthopaedics", qualification: "MBBS, MS" },
+  { slug: "dr-abdul-jabbar-shaikh", name: "Dr. Abdul Jabbar Shaikh", designation: "Orthopedic & Spine Surgery", speciality: "orthopaedics", qualification: "MBBS, MS" },
+  { slug: "dr-faiyaz-khan", name: "Dr. Faiyaz Khan", designation: "Orthopedic & Spine Surgery", speciality: "orthopaedics", qualification: "MBBS, MS" },
+  { slug: "dr-a-k-garg", name: "Dr. A K Garg", designation: "Orthopedic & Spine Surgery", speciality: "orthopaedics", qualification: "MBBS, MS" },
+  { slug: "dr-surjanshu-roy", name: "Dr. Surjanshu Roy", designation: "Orthopedic & Spine Surgery", speciality: "orthopaedics", qualification: "MBBS, MS" },
+  { slug: "dr-sanjoy-kumar", name: "Dr. Sanjoy Kumar", designation: "Orthopedic & Spine Surgery", speciality: "orthopaedics", qualification: "MBBS, MS" },
+  { slug: "dr-mifijul-rahaman", name: "Dr. Mifijul Rahaman", designation: "Orthopedic & Spine Surgery", speciality: "orthopaedics", qualification: "MBBS, MS" },
+  { slug: "dr-gaganprit-sing", name: "Dr. Gaganprit Sing (Ped)", designation: "Orthopedic & Spine Surgery", speciality: "orthopaedics", qualification: "MBBS, MS" },
+  { slug: "dr-rajendra-sahoo", name: "Dr. Rajendra Sahoo", designation: "General Surgery", speciality: "surgery", qualification: "MBBS, MS" },
+  { slug: "dr-tanmay-tikadar", name: "Dr. Tanmay Tikadar", designation: "General Surgery", speciality: "surgery", qualification: "MBBS, MS" },
+  { slug: "dr-arnab-naha", name: "Dr. Arnab Naha", designation: "General Surgery", speciality: "surgery", qualification: "MBBS, MS" },
+  { slug: "dr-sayan-majumder", name: "Dr. Sayan Majumder", designation: "General Surgery", speciality: "surgery", qualification: "MBBS, MS" },
+  { slug: "dr-r-k-san", name: "Dr. R K San", designation: "General Surgery", speciality: "surgery", qualification: "MBBS, MS" },
+  { slug: "dr-c-p-sharma", name: "Dr. C P Sharma", designation: "General Surgery", speciality: "surgery", qualification: "MBBS, MS" },
+  { slug: "dr-abdul-rouf", name: "Dr. Abdul Rouf", designation: "General Surgery", speciality: "surgery", qualification: "MBBS, MS" },
+  { slug: "dr-mohit-kumar-mandal", name: "Dr. Mohit Kumar Mandal", designation: "General Surgery", speciality: "surgery", qualification: "MBBS, MS" },
+  { slug: "dr-g-d-pan", name: "Dr. G D Pan (Ped)", designation: "General Surgery", speciality: "surgery", qualification: "MBBS, MS" },
+  { slug: "dr-kishor-kr-roy", name: "Dr. Kishor Kr Roy", designation: "General Surgery", speciality: "surgery", qualification: "MBBS, MS, FAMS, Fellowship in Surgical Oncology" },
+  { slug: "dr-pranati-kashyapi", name: "Dr. Pranati Kashyapi", designation: "Obstetrics & Gynecology", speciality: "gynaecology-obstetrics", qualification: "MBBS, MS" },
+  { slug: "dr-ankita-ghosh", name: "Dr. Ankita Ghosh", designation: "Obstetrics & Gynecology", speciality: "gynaecology-obstetrics", qualification: "MBBS, MS" },
+  { slug: "dr-tarana-haque", name: "Dr. Tarana Haque", designation: "Obstetrics & Gynecology", speciality: "gynaecology-obstetrics", qualification: "MBBS, MS" },
+  { slug: "dr-asif-kamal", name: "Dr. Asif Kamal", designation: "Obstetrics & Gynecology", speciality: "gynaecology-obstetrics", qualification: "MBBS, MS" },
+  { slug: "dr-enamul-hasan", name: "Dr. Enamul Hasan", designation: "Obstetrics & Gynecology", speciality: "gynaecology-obstetrics", qualification: "MBBS, MS" },
+  { slug: "dr-rahul-dey", name: "Dr. Rahul Dey", designation: "Neuro-Surgery", speciality: "neuro-surgery", qualification: "MBBS, MS, MCh" },
+  { slug: "dr-gulam-salwal", name: "Dr. Gulam Salwal", designation: "Neuro-Surgery", speciality: "neuro-surgery", qualification: "MBBS, MS, MCh" },
+  { slug: "dr-monoranjan-jena", name: "Dr. Monoranjan Jena", designation: "Neuro-Surgery", speciality: "neuro-surgery", qualification: "MBBS, MS, MCh" },
+  { slug: "dr-azizul-purakait", name: "Dr. Azizul Purakait", designation: "Gynecologic Oncology", speciality: "gynecologic-oncology", qualification: "MBBS, MD (Clinical Oncology)" },
+  { slug: "dr-rejakul-islam", name: "Dr. Rejakul Islam", designation: "Gynecologic Oncology", speciality: "gynecologic-oncology", qualification: "MBBS, FNB" },
+  { slug: "dr-trijoy-saha", name: "Dr. Trijoy Saha", designation: "Radiology", speciality: "radiology-imaging", qualification: "MBBS, MD Radiologist" },
+  { slug: "dr-p-banerjee", name: "Dr. P Banerjee", designation: "Radiology", speciality: "radiology-imaging", qualification: "MBBS, Sonologist" },
+  { slug: "dr-sushovan-saha", name: "Dr. Sushovan Saha", designation: "Plastic & Reconstructive Surgeon", speciality: "plastic-reconstructive-surgery", qualification: "MBBS, MS, MCh" },
+  { slug: "dr-rubel-ganguli", name: "Dr. Rubel Ganguli", designation: "Plastic & Reconstructive Surgeon", speciality: "plastic-reconstructive-surgery", qualification: "MBBS, MS, MCh" },
+  { slug: "dr-gouranga-dutta", name: "Dr. Gouranga Dutta", designation: "Plastic & Reconstructive Surgeon", speciality: "plastic-reconstructive-surgery", qualification: "MBBS, MS, MCh" },
+  { slug: "dr-anirban-ray", name: "Dr. Anirban Ray", designation: "Pulmonology", speciality: "pulmonology", qualification: "MBBS, DTCD, DNB" },
+  { slug: "dr-dawood-khan", name: "Dr. Dawood Khan", designation: "Urology", speciality: "urology", qualification: "MBBS, MS, MCh" },
+  { slug: "dr-dipankar-bera", name: "Dr. Dipankar Bera", designation: "Urology", speciality: "urology", qualification: "MBBS, MS, MCh" },
+  { slug: "dr-k-k-das", name: "Dr. K K Das", designation: "Urology", speciality: "urology", qualification: "DNB Urologist" },
+  { slug: "dr-sourav-sadhukhan", name: "Dr. Sourav Sadhukhan", designation: "Nephrologist", speciality: "nephrology", qualification: "MBBS, MD, DM" },
+  { slug: "dr-tapabrata-das", name: "Dr. Tapabrata Das", designation: "Nephrologist", speciality: "nephrology", qualification: "MBBS, DM", availability: "1st Sunday every month" },
+  { slug: "dr-atin-maity", name: "Dr. Atin Maity", designation: "Nephrologist", speciality: "nephrology", qualification: "MBBS, DM", availability: "Last Friday every month" },
+  { slug: "dr-somnath-das-gupta", name: "Dr. Somnath Das Gupta", designation: "Nephrologist", speciality: "nephrology", qualification: "MBBS, DM", availability: "3rd Sunday every month" },
+  { slug: "dr-sabyasachi-ghosh", name: "Dr. Sabyasachi Ghosh", designation: "ENT Surgery", speciality: "ent-head-neck", qualification: "MBBS, MS" },
+  { slug: "dr-ankita-mukherjee", name: "Dr. Ankita Mukherjee", designation: "ENT Surgery", speciality: "ent-head-neck", qualification: "MBBS, MS" },
+  { slug: "dr-debadeep-day", name: "Dr. Debadeep Day", designation: "ENT Surgery", speciality: "ent-head-neck", qualification: "MBBS, MS" },
+  { slug: "dr-raju-nmondal", name: "Dr. Raju Nmondal", designation: "ENT Surgery", speciality: "ent-head-neck", qualification: "MBBS, MS" },
+  { slug: "dr-subum-kasua-bani", name: "Dr. Subum Kasua Bani", designation: "ENT Surgery", speciality: "ent-head-neck", qualification: "MBBS, MS" },
+  { slug: "dr-abir-chowdhury", name: "Dr. Abir Chowdhury", designation: "ENT Surgery", speciality: "ent-head-neck", qualification: "MBBS, MS" },
+  { slug: "dr-m-a-khandakar", name: "Dr. M A Khandakar", designation: "Critical Care & General Medicine", speciality: "general-medicine", qualification: "MBBS, MD" },
+  { slug: "dr-sujon-das", name: "Dr. Sujon Das", designation: "Critical Care & General Medicine", speciality: "general-medicine", qualification: "MBBS, MD" },
+  { slug: "dr-dibyendu-laha", name: "Dr. Dibyendu Laha", designation: "Critical Care & General Medicine", speciality: "general-medicine", qualification: "MBBS, Cardiology (RCP)" },
+  { slug: "dr-ilias-malla", name: "Dr. Ilias Malla", designation: "Critical Care & General Medicine", speciality: "general-medicine", qualification: "MBBS, MD, CPCDM, MCC" },
+  { slug: "s-arifin", name: "S. Arifin", designation: "Science in Physiotherapy with Rehabilitation", speciality: "physiotherapy-rehabilitation", qualification: "DPT" },
+  { slug: "sahid-almer", name: "Sahid Almer", designation: "Science in Physiotherapy with Rehabilitation", speciality: "physiotherapy-rehabilitation", qualification: "DPT" },
+  { slug: "subhashree-sarkar", name: "Subhashree Sarkar", designation: "Dietician", speciality: "dietetics" },
+  { slug: "dr-h-k-biswas", name: "Dr. H. K Biswas", designation: "Eye", speciality: "ophthalmology", qualification: "MBBS, MS" },
+  { slug: "dr-ramanuj-singh", name: "Dr. Ramanuj Singh", designation: "Eye", speciality: "ophthalmology", qualification: "MBBS, MS" },
+  { slug: "dr-animesh-ghosh", name: "Dr. Animesh Ghosh", designation: "Eye", speciality: "ophthalmology", qualification: "MBBS, MS" }
+].map((doctor) => ({ ...doctor, hospitalSlug: "aahil-hospitex-berhampore" }));
+
+export const doctors: Doctor[] = [...medinipurDoctorSeeds, ...aahilDoctorSeeds].map((doctor) => {
+  const { qualification, hospitalSlug, ...doctorDetails } = doctor;
+
+  return {
+    ...doctorDetails,
+    hospitalSlugs: [hospitalSlug ?? "glocal-paschim-medinipur"],
+    image: "/doctor-placeholder.svg",
+    languages: [],
+    qualifications: qualification ? [qualification] : [],
+    specialisationAreas: [doctor.designation],
+    conditions: []
+  };
+});
 
 export const insurancePartners = [
   "Star Health",

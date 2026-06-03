@@ -1,0 +1,380 @@
+.wizard {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(10, 31, 107, 0.1);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0, 168, 157, 0.1), transparent 22rem),
+    #ffffff;
+  box-shadow: 0 20px 55px rgba(10, 31, 107, 0.1);
+}
+
+.wizardHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: clamp(22px, 4vw, 34px);
+  border-bottom: 1px solid var(--line);
+}
+
+.wizardHeader span,
+.selectionSummary span {
+  color: var(--teal);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.wizardHeader h2 {
+  margin: 6px 0 8px;
+  color: var(--navy);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.wizardHeader p {
+  max-width: 680px;
+  margin: 0;
+  color: #5b6677;
+}
+
+.currentStep {
+  width: 86px;
+  height: 86px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 18px;
+  color: var(--navy);
+  background: rgba(0, 168, 157, 0.1);
+}
+
+.currentStep strong,
+.currentStep span {
+  display: block;
+  color: inherit;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.currentStep strong {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.currentStep span {
+  font-size: 0.85rem;
+}
+
+.selectionSummary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 18px clamp(22px, 4vw, 34px) 0;
+}
+
+.selectionSummary > div {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #f8fbfc;
+}
+
+.selectionSummary strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--navy);
+  line-height: 1.25;
+}
+
+.wizardProgress {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 22px clamp(22px, 4vw, 34px);
+}
+
+.wizardProgress button {
+  min-height: 58px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: #687586;
+  background: #ffffff;
+  cursor: default;
+  font-weight: 800;
+  transition: border-color 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.wizardProgress button span {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 5px;
+  border-radius: 999px;
+  color: #ffffff;
+  background: #9aa7b7;
+  font-size: 0.82rem;
+}
+
+.wizardProgress button.active {
+  border-color: rgba(0, 168, 157, 0.45);
+  color: var(--navy);
+  background: rgba(0, 168, 157, 0.09);
+  cursor: pointer;
+}
+
+.wizardProgress button.active span {
+  background: var(--teal);
+}
+
+.pickerGrid,
+.formGrid,
+.summaryPanel,
+.successPanel,
+.bookingNumberPanel {
+  margin: 0 clamp(22px, 4vw, 34px) clamp(22px, 4vw, 34px);
+}
+
+.pickerGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.pickerCard {
+  min-height: 118px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  text-align: left;
+  color: var(--text);
+  background: #ffffff;
+  box-shadow: 0 8px 22px rgba(10, 31, 107, 0.05);
+  cursor: pointer;
+  transition: transform 170ms ease, border-color 170ms ease, box-shadow 170ms ease;
+}
+
+.pickerCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 168, 157, 0.55);
+  box-shadow: 0 13px 28px rgba(10, 31, 107, 0.09);
+}
+
+.pickerCard strong,
+.pickerCard span,
+.pickerCard small {
+  display: block;
+}
+
+.pickerCard strong {
+  color: var(--navy);
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+.pickerCard span {
+  margin-top: 7px;
+  color: #647184;
+  line-height: 1.45;
+}
+
+.pickerCard small {
+  margin-top: 8px;
+  color: var(--teal);
+  font-weight: 800;
+}
+
+.selected {
+  border-color: var(--teal) !important;
+  background: rgba(0, 168, 157, 0.1) !important;
+}
+
+.formGrid {
+  display: grid;
+  gap: 18px;
+}
+
+.formGrid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.formGrid label {
+  display: grid;
+  gap: 8px;
+  color: var(--navy);
+  font-weight: 850;
+}
+
+.formGrid input,
+.formGrid select,
+.formGrid textarea {
+  width: 100%;
+  min-height: 50px;
+  border: 1px solid #cfd8e6;
+  border-radius: 12px;
+  padding: 0.86rem 0.95rem;
+  color: var(--text);
+  background: #ffffff;
+  font: inherit;
+}
+
+.formGrid textarea {
+  resize: vertical;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.slotGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.slotGrid button {
+  min-height: 78px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  color: var(--navy);
+  background: #ffffff;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.slotGrid button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.slotGrid small {
+  display: block;
+  margin-top: 4px;
+  color: #667386;
+}
+
+.summaryPanel,
+.successPanel {
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #f8fbfc;
+}
+
+.summaryPanel h2,
+.successPanel h2 {
+  margin-top: 0;
+  color: var(--navy);
+}
+
+.bookingNumberPanel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: clamp(22px, 4vw, 34px);
+  border: 1px solid rgba(0, 168, 157, 0.26);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0, 168, 157, 0.12), transparent 18rem),
+    #f8fbfc;
+}
+
+.bookingNumberPanel span {
+  color: var(--teal);
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.bookingNumberPanel h2 {
+  margin: 8px 0 10px;
+  color: var(--navy);
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.bookingNumberPanel p {
+  max-width: 600px;
+  margin: 0;
+  color: #526071;
+  font-size: 1.05rem;
+}
+
+.bookingActions {
+  display: grid;
+  gap: 10px;
+  min-width: min(100%, 220px);
+}
+
+.bookingActions :global(.btn) {
+  min-height: 48px;
+  white-space: nowrap;
+}
+
+.wizardActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px clamp(22px, 4vw, 34px);
+  border-top: 1px solid var(--line);
+  background: #fbfcff;
+}
+
+.wizardActions .btn {
+  min-height: 48px;
+}
+
+@media (max-width: 1024px) {
+  .wizardProgress {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .pickerGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .wizardHeader {
+    display: grid;
+  }
+
+  .currentStep {
+    width: 72px;
+    height: 72px;
+  }
+
+  .selectionSummary,
+  .wizardProgress,
+  .pickerGrid,
+  .formGrid.two,
+  .slotGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .bookingNumberPanel {
+    display: grid;
+  }
+
+  .wizardActions {
+    display: grid;
+  }
+
+  .wizardActions .btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pickerCard,
+  .wizardProgress button {
+    transition: none;
+  }
+}

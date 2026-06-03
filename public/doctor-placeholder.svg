@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 360" role="img" aria-labelledby="title desc">
+  <title id="title">Doctor photo placeholder</title>
+  <desc id="desc">A simple healthcare-themed placeholder portrait.</desc>
+  <rect width="420" height="360" fill="#eef6f5"/>
+  <circle cx="210" cy="132" r="62" fill="#b9d8d3"/>
+  <path d="M93 360c8-91 52-142 117-142s109 51 117 142H93z" fill="#78aaa3"/>
+  <path d="M153 234c13 18 32 28 57 28s44-10 57-28v126H153V234z" fill="#fff"/>
+  <path d="M180 255l30 46 30-46" fill="none" stroke="#78aaa3" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="210" cy="306" r="12" fill="#1f766c"/>
+  <path d="M210 318v23" stroke="#1f766c" stroke-width="7" stroke-linecap="round"/>
+</svg>

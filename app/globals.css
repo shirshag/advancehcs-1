@@ -1332,19 +1332,56 @@ legend {
 }
 
 .site-footer {
-  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(0, 168, 157, 0.22), transparent 24rem),
+    linear-gradient(135deg, #061653 0%, var(--navy) 62%, #08226e 100%);
   color: #ffffff;
 }
 
 .footer-grid {
-  padding: 62px 0;
+  padding: 58px 0 46px;
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(160px, 0.85fr) minmax(180px, 0.9fr) minmax(240px, 1fr);
-  gap: 34px;
+  grid-template-columns: minmax(260px, 1.25fr) minmax(150px, 0.7fr) minmax(210px, 0.85fr) minmax(300px, 1fr);
+  gap: clamp(26px, 4vw, 56px);
+  align-items: start;
+}
+
+.footer-about {
+  max-width: 420px;
+}
+
+.footer-brand {
+  align-items: center;
+  gap: 14px;
+  color: #ffffff;
+}
+
+.footer-brand img {
+  width: 86px;
+  height: 86px;
+  object-fit: contain;
+  padding: 8px;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.footer-brand strong {
+  color: #ffffff;
+  font-size: 1.08rem;
+}
+
+.footer-brand small {
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.35;
 }
 
 .footer-grid h2 {
-  font-size: 1.1rem;
+  margin: 6px 0 16px;
+  color: #ffffff;
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
 }
 
 .footer-grid ul {
@@ -1352,7 +1389,7 @@ legend {
   margin: 0;
   list-style: none;
   display: grid;
-  gap: 8px;
+  gap: 10px;
 }
 
 .footer-grid p,
@@ -1360,15 +1397,74 @@ legend {
   color: rgba(255, 255, 255, 0.86);
 }
 
+.footer-grid a {
+  text-decoration: none;
+  transition: color 160ms ease, opacity 160ms ease;
+}
+
+.footer-grid a:hover {
+  color: #ffffff;
+}
+
+.footer-about p {
+  margin: 18px 0;
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.65;
+}
+
+.footer-contact-list {
+  display: grid;
+  gap: 8px;
+}
+
+.footer-contact-list a {
+  width: fit-content;
+  font-weight: 780;
+}
+
+.footer-contact-card {
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 18px 40px rgba(0, 7, 38, 0.18);
+}
+
+.footer-contact-card h2 {
+  margin-top: 0;
+}
+
+.footer-contact-card p {
+  margin: 0 0 18px;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.95rem;
+}
+
 .footer-form input,
 .footer-form textarea {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.28);
   color: #ffffff;
+  border-radius: 12px;
+  min-height: 46px;
+  padding: 0.72rem 0.85rem;
+  font: inherit;
 }
 
 .footer-form label {
+  display: grid;
+  gap: 6px;
   color: #ffffff;
+  font-weight: 750;
+  font-size: 0.94rem;
+}
+
+.footer-form textarea {
+  resize: vertical;
+}
+
+.footer-form .btn {
+  min-height: 46px;
 }
 
 .footer-bottom {
@@ -1380,6 +1476,12 @@ legend {
   display: flex;
   justify-content: space-between;
   gap: 18px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.94rem;
+}
+
+.footer-bottom a {
+  color: #ffffff;
 }
 
 .whatsapp-float,

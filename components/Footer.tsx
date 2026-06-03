@@ -5,8 +5,8 @@ const quickLinks = [
   ["Our Hospitals", "/hospitals"],
   ["Specialities", "/specialities"],
   ["Find a Doctor", "/doctors"],
-  ["Company History", "/company-history"],
-  ["Management Board", "/management-board"],
+  ["About Us", "/company-history"],
+  ["MD Speech", "/management-board"],
   ["Academics", "/academics"],
   ["Insurance & TPA", "/insurance-tpa"],
   ["Book Appointment", "/book-appointment"],
@@ -17,33 +17,22 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <div className="container footer-grid">
-        <div>
+        <div className="footer-about">
           <Link className="brand footer-brand" href="/">
-            <img src="../logo.jpg" alt="" />
+            <img src="/logo.jpg" alt="Advance HCS Pvt. Ltd. logo" />
             <span>
               <strong>{company.name}</strong>
               <small>{company.tagline}</small>
             </span>
           </Link>
-          <p>{company.subTagline}</p>
-          <p>West Bengal hospital network focused on rural and semi-urban care.</p>
-          <p>
+          <p>West Bengal hospital network focused on accessible, affordable, and compassionate care across rural and semi-urban communities.</p>
+          <div className="footer-contact-list">
             <a href={`tel:${company.phone}`}>{company.phoneDisplay}</a>
-            <br />
             <a href={`mailto:${company.email}`}>{company.email}</a>
-          </p>
-          <div className="social-row" aria-label="Social links">
-            <a href="#" aria-label="Facebook">FB</a>
-            <a href="#" aria-label="Instagram">IG</a>
-            <a href="#" aria-label="YouTube">YT</a>
-            <a href="#" aria-label="X">X</a>
-          </div>
-          <div className="badge-row">
-            <span>Google Play</span>
-            <span>App Store</span>
+            <a href={company.whatsapp}>WhatsApp Support</a>
           </div>
         </div>
-        <div>
+        <nav aria-label="Footer quick links">
           <h2>Quick Links</h2>
           <ul>
             {quickLinks.map(([label, href]) => (
@@ -52,8 +41,8 @@ export function Footer() {
               </li>
             ))}
           </ul>
-        </div>
-        <div>
+        </nav>
+        <nav aria-label="Footer hospital links">
           <h2>Our Hospitals</h2>
           <ul>
             {hospitals.map((hospital) => (
@@ -62,24 +51,25 @@ export function Footer() {
               </li>
             ))}
           </ul>
-        </div>
-        <div>
-          <h2>Contact Form</h2>
+        </nav>
+        <div className="footer-contact-card">
+          <h2>Send an Enquiry</h2>
+          <p>Share your details and our coordination team will help you connect with the right hospital.</p>
           <form className="footer-form">
             <label>
               Name
-              <input aria-label="Name" type="text" />
+              <input name="name" type="text" autoComplete="name" />
             </label>
             <label>
-              Email
-              <input aria-label="Email" type="email" />
+              Phone
+              <input name="phone" type="tel" autoComplete="tel" />
             </label>
             <label>
               Message
-              <textarea aria-label="Message" rows={3} />
+              <textarea name="message" rows={3} />
             </label>
             <button className="btn btn-primary" type="submit">
-              Send
+              Send Enquiry
             </button>
           </form>
         </div>
@@ -88,7 +78,7 @@ export function Footer() {
         <div className="container">
           <span>{company.copyright}</span>
           <span>
-            <Link href="#">Privacy Policy</Link> | <Link href="#">Terms of Use</Link>
+            <Link href="/contact">Contact</Link> | <Link href="/book-appointment">Book Appointment</Link>
           </span>
         </div>
       </div>

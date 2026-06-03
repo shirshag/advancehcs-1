@@ -1,0 +1,312 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 88% 14%, rgba(0, 168, 157, 0.28), transparent 26rem),
+    linear-gradient(135deg, #07194f 0%, var(--navy) 64%, #0b347f 100%);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+  background-size: 52px 52px;
+  pointer-events: none;
+}
+
+.heroGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
+  gap: clamp(34px, 6vw, 86px);
+  align-items: center;
+  padding-top: 34px;
+  padding-bottom: 72px;
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.92rem;
+}
+
+.eyebrow {
+  color: #7ce0d8;
+  font-size: 0.78rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.copy h1 {
+  max-width: 780px;
+  margin: 12px 0 16px;
+  font-size: clamp(3rem, 7vw, 6.7rem);
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+}
+
+.copy p {
+  max-width: 660px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1.05rem, 2vw, 1.32rem);
+  line-height: 1.65;
+}
+
+.signatureBlock {
+  display: grid;
+  gap: 4px;
+  max-width: 520px;
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.signatureBlock strong {
+  font-size: 1.25rem;
+}
+
+.signatureBlock span {
+  color: #7ce0d8;
+  font-weight: 850;
+}
+
+.signatureBlock small {
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.45;
+}
+
+.portraitCard {
+  position: relative;
+  align-self: end;
+  animation: enterUp 360ms ease-out both;
+}
+
+.portraitCard img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 4.8;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 22px;
+  background: #eef6f5;
+  box-shadow: 0 28px 70px rgba(0, 8, 38, 0.35);
+}
+
+.portraitCard div {
+  position: absolute;
+  right: -20px;
+  bottom: 24px;
+  max-width: 260px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  color: var(--navy);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 16px 36px rgba(0, 8, 38, 0.24);
+}
+
+.portraitCard span,
+.portraitCard strong {
+  display: block;
+}
+
+.portraitCard span {
+  color: var(--teal);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.portraitCard strong {
+  margin-top: 4px;
+  line-height: 1.25;
+}
+
+.valuesSection {
+  background: #f7f9fc;
+  border-bottom: 1px solid var(--line);
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+
+.valuesGrid article {
+  min-height: 82px;
+  display: grid;
+  align-items: center;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  color: var(--navy);
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(10, 31, 107, 0.06);
+}
+
+.valuesGrid span {
+  font-weight: 900;
+}
+
+.messageSection {
+  padding: 76px 0 88px;
+  background: #ffffff;
+}
+
+.messageGrid {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.42fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: start;
+}
+
+.quotePanel {
+  position: sticky;
+  top: 142px;
+  padding: 28px;
+  border-radius: 22px;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0, 168, 157, 0.28), transparent 16rem),
+    var(--navy);
+}
+
+.quotePanel blockquote {
+  margin: 18px 0 0;
+  font-size: clamp(1.65rem, 3.5vw, 2.55rem);
+  line-height: 1.16;
+  letter-spacing: -0.035em;
+}
+
+.speechCard {
+  max-width: 860px;
+  padding: clamp(26px, 4vw, 44px);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(0, 168, 157, 0.06), transparent 180px),
+    #ffffff;
+  box-shadow: 0 18px 46px rgba(10, 31, 107, 0.08);
+}
+
+.speechCard h2 {
+  margin: 10px 0 20px;
+  color: var(--navy);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.speechCard p {
+  margin: 0;
+  color: #4d5a6b;
+  font-size: 1.04rem;
+  line-height: 1.82;
+}
+
+.speechCard p + p {
+  margin-top: 18px;
+}
+
+.opening {
+  color: var(--navy) !important;
+  font-weight: 850;
+}
+
+.thankYou {
+  display: grid;
+  gap: 8px;
+  margin-top: 30px;
+  padding: 22px;
+  border-radius: 18px;
+  color: var(--navy);
+  background: rgba(0, 168, 157, 0.1);
+}
+
+.thankYou strong {
+  font-size: 1.25rem;
+}
+
+.thankYou span {
+  color: #526071;
+  line-height: 1.6;
+}
+
+@keyframes enterUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .heroGrid,
+  .messageGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .portraitCard {
+    max-width: 430px;
+  }
+
+  .quotePanel {
+    position: static;
+  }
+
+  .valuesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .heroGrid {
+    padding-top: 24px;
+    padding-bottom: 48px;
+  }
+
+  .breadcrumb {
+    margin-bottom: 24px;
+  }
+
+  .copy h1 {
+    font-size: clamp(2.55rem, 14vw, 4rem);
+  }
+
+  .portraitCard div {
+    position: static;
+    max-width: none;
+    margin-top: 10px;
+  }
+
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .messageSection {
+    padding: 54px 0 64px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portraitCard {
+    animation: none;
+  }
+}
