@@ -7,7 +7,7 @@ import { HospitalsMap } from "@/components/HospitalsMap";
 import { SearchFlow } from "@/components/SearchFlow";
 import { StatCounters } from "@/components/StatCounters";
 import { Testimonials } from "@/components/Testimonials";
-import { articles, company, doctors, hospitals, insurancePartners, specialities } from "@/data/site";
+import { articles, company, doctors, insurancePartners, specialities } from "@/data/site";
 import { Icon } from "@/lib/icons";
 import { useState } from "react";
 import { DoctorResults } from "@/components/DoctorResults";
@@ -97,13 +97,18 @@ export default function HomePage() {
             <p className="network-copy">
               Advance HCS operates multi-specialty care points across Nadia, Bankura, Paschim Medinipur, Murshidabad, and Kalyani, bringing hospital access closer to rural and semi-urban families.
             </p>
-            {hospitals.map((hospital) => (
-              <Link className="hospital-summary-item" href={`/hospitals/${hospital.slug}`} key={hospital.slug}>
-                <span>{hospital.district}</span>
-                <strong>{hospital.shortName}</strong>
-                <small>{hospital.phone}</small>
-              </Link>
-            ))}
+            <div className="network-benefit-grid" aria-label="Hospital network benefits">
+              {[
+                ["Specialist access", "Multi-specialty care closer to district communities."],
+                ["Connected referrals", "A shared hospital network for faster patient coordination."],
+                ["Simple booking", "Find hospitals, doctors, and appointment contacts in one place."]
+              ].map(([title, copy]) => (
+                <article className="network-benefit-card" key={title}>
+                  <strong>{title}</strong>
+                  <span>{copy}</span>
+                </article>
+              ))}
+            </div>
             <Link className="btn btn-primary" href="/hospitals">Explore All Hospitals</Link>
           </div>
         </div>
