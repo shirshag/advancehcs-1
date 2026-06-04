@@ -23,7 +23,13 @@ export function SearchFlow({ compact = false, onSearch }: { compact?: boolean; o
     });
   }, [hospital, speciality]);
 
-    function submitSearch() {
+  function submitSearch() {
+    if (!hospital && !speciality && !doctor) {
+      onSearch([]);
+      router.push("/doctors");
+      return;
+    }
+
     let filtered = doctors;
 
     if (hospital) {
@@ -44,7 +50,7 @@ export function SearchFlow({ compact = false, onSearch }: { compact?: boolean; o
       );
     }
 
-    onSearch(filtered); 
+    onSearch(filtered.slice(0, doctor ? 1 : 6)); 
   }
 
   // function submitSearch() {
@@ -107,7 +113,7 @@ export function SearchFlow({ compact = false, onSearch }: { compact?: boolean; o
         </select>
       </label>
       <button type="button" className="btn btn-primary search-submit" onClick={submitSearch}>
-        <Icon name="search" /> Submit
+        <Icon name="search" /> Search
       </button>
     </div>
   );

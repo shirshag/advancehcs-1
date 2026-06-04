@@ -338,15 +338,15 @@ textarea:focus-visible {
 
 .search-flow {
   display: grid;
-  grid-template-columns: repeat(3, 1fr) auto;
+  grid-template-columns: repeat(3, minmax(170px, 1fr)) minmax(112px, auto);
   gap: 10px;
-  padding: 14px;
+  padding: 12px;
   background: #ffffff;
   color: var(--text);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  max-width: 1080px;
-  width: min(100%, 1080px);
+  max-width: 920px;
+  width: min(100%, 920px);
 }
 
 .search-flow label {
@@ -373,7 +373,9 @@ textarea {
 
 .search-submit {
   align-self: end;
-  min-height: 52px;
+  min-height: 44px;
+  padding: 0.72rem 1rem;
+  white-space: nowrap;
 }
 
 .quick-actions {
@@ -642,6 +644,64 @@ textarea {
 .highlight-row span {
   background: rgba(0, 168, 157, 0.1);
   color: var(--navy);
+}
+
+.home-doctor-finder {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.home-doctor-controls {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr) minmax(150px, auto);
+  gap: 12px;
+  align-items: end;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(240, 251, 250, 0.78)),
+    #ffffff;
+  padding: 16px;
+  box-shadow: 0 14px 36px rgba(10, 31, 107, 0.08);
+}
+
+.home-doctor-controls label {
+  display: grid;
+  gap: 6px;
+  font-weight: 800;
+}
+
+.home-doctor-controls label span {
+  color: var(--body);
+  font-size: 0.82rem;
+}
+
+.home-doctor-count {
+  display: grid;
+  min-height: 50px;
+  align-content: center;
+  border-radius: 18px;
+  background: var(--navy);
+  color: #ffffff;
+  padding: 10px 14px;
+}
+
+.home-doctor-count strong {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.home-doctor-count span {
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.home-doctor-note {
+  color: var(--body);
+  font-size: 0.94rem;
+  font-weight: 750;
 }
 
 .split-map {
@@ -1782,6 +1842,10 @@ legend {
 
   .search-submit {
     grid-column: 1 / -1;
+  }
+
+  .home-doctor-controls {
+    grid-template-columns: 1fr;
   }
 
   .split-map,

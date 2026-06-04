@@ -7,15 +7,30 @@ import { HospitalsMap } from "@/components/HospitalsMap";
 import { SearchFlow } from "@/components/SearchFlow";
 import { StatCounters } from "@/components/StatCounters";
 import { Testimonials } from "@/components/Testimonials";
-import { articles, company, doctors, insurancePartners, specialities } from "@/data/site";
+import { articles, company, doctors, hospitals, insurancePartners, specialities, specialitiesForHospital } from "@/data/site";
 import { Icon } from "@/lib/icons";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { DoctorResults } from "@/components/DoctorResults";
 
 export default function HomePage() {
   const [results, setResults] = useState<any[]>([]);
+  const [doctorHospital, setDoctorHospital] = useState("");
+  const [doctorSpeciality, setDoctorSpeciality] = useState("");
 
-  const featuredDoctors = doctors.slice(0, 8);
+  const homeSpecialities = useMemo(() => {
+    return doctorHospital ? specialitiesForHospital(doctorHospital) : specialities;
+  }, [doctorHospital]);
+
+  const filteredHomeDoctors = useMemo(() => {
+    return doctors.filter((doctor) => {
+      const hospitalMatch = doctorHospital ? doctor.hospitalSlugs.includes(doctorHospital) : true;
+      const specialityMatch = doctorSpeciality ? doctor.speciality === doctorSpeciality : true;
+      return hospitalMatch && specialityMatch;
+    });
+  }, [doctorHospital, doctorSpeciality]);
+
+  const visibleHomeDoctors = filteredHomeDoctors.slice(0, 6);
+
   return (
     <>
       <section className="hero home-hero">
@@ -75,14 +90,50 @@ export default function HomePage() {
       <section className="section section-muted">
         <div className="container section-head">
           <span className="eyebrow">Find a Doctor</span>
-          <h2>Our Team of Experienced Doctors</h2>
-          <Link href="/doctors">View All Doctors -</Link>
+          <h2>Find the right doctor faster</h2>
+          <p>Start with a hospital or department, then continue to the full directory when you need more options.</p>
+          <Link href="/doctors">Open Doctor Directory -</Link>
         </div>
-        <div className="container tabs" role="tablist" aria-label="Doctor filters">
-          {["All", "Gynaecology", "ENT", "Orthopaedics", "Cardiology"].map((item) => <span key={item}>{item}</span>)}
+
+        <div className="container home-doctor-finder">
+          <div className="home-doctor-controls" aria-label="Homepage doctor filters">
+            <label>
+              <span>Hospital</span>
+              <select
+                value={doctorHospital}
+                onChange={(event) => {
+                  setDoctorHospital(event.target.value);
+                  setDoctorSpeciality("");
+                }}
+              >
+                <option value="">All hospitals</option>
+                {hospitals.map((hospital) => (
+                  <option value={hospital.slug} key={hospital.slug}>{hospital.shortName}</option>
+                ))}
+              </select>
+            </label>
+            <label>
+              <span>Department</span>
+              <select value={doctorSpeciality} onChange={(event) => setDoctorSpeciality(event.target.value)}>
+                <option value="">All departments</option>
+                {homeSpecialities.map((speciality) => (
+                  <option value={speciality.slug} key={speciality.slug}>{speciality.name}</option>
+                ))}
+              </select>
+            </label>
+            <div className="home-doctor-count" aria-live="polite">
+              <strong>{filteredHomeDoctors.length}</strong>
+              <span>matching doctors</span>
+            </div>
+          </div>
+
+          <div className="home-doctor-note">
+            Showing {visibleHomeDoctors.length} doctors here. Use the full directory for name search, gender filters, and the complete list.
+          </div>
         </div>
+
         <div className="container cards-grid doctors-grid">
-          {featuredDoctors.map((doctor) => <DoctorCard key={doctor.slug} doctor={doctor} />)}
+          {visibleHomeDoctors.map((doctor) => <DoctorCard key={doctor.slug} doctor={doctor} />)}
         </div>
       </section>
 
