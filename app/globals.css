@@ -161,6 +161,12 @@ textarea:focus-visible {
   transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
 }
 
+.btn svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
 .btn:hover {
   transform: translateY(-2px);
 }
@@ -1723,7 +1729,17 @@ legend {
   bottom: 20px;
   background: #0a7d52;
   color: #ffffff;
-  padding: 13px 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 14px;
+  text-decoration: none;
+}
+
+.whatsapp-float svg {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
 }
 
 .back-top {
@@ -1992,12 +2008,24 @@ legend {
     width: 100%;
   }
 
+  .button-row .btn {
+    flex: 0 0 auto;
+    min-height: 44px;
+    padding-block: 0.76rem;
+  }
+
+  .search-submit {
+    min-height: 44px;
+  }
+
   .side-tab {
     display: none;
   }
 
   .whatsapp-float {
     bottom: 76px;
+    right: 12px;
+    padding: 10px 12px;
   }
 
   .mobile-book-cta {

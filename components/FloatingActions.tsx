@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { company } from "@/data/site";
+import { Icon } from "@/lib/icons";
 
 export function FloatingActions() {
   const [visible, setVisible] = useState(false);
@@ -17,7 +18,8 @@ export function FloatingActions() {
   return (
     <>
       <a className="whatsapp-float" href={company.whatsapp} aria-label="Chat on WhatsApp">
-        WhatsApp
+        <Icon name="whatsapp" />
+        <span>WhatsApp</span>
       </a>
       <button
         className={`back-top ${visible ? "show" : ""}`}
